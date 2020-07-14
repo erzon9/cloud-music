@@ -1,11 +1,20 @@
 <template>
-  <div>
-    Home
+  <div class="home">
+    <Top></Top>
+    <Tab></Tab>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {};
+import Top from "./Top";
+import Tab from "./Tab";
+export default {
+  components: {
+    Top,
+    Tab
+  }
+};
 </script>
 
-<style></style>
+<style lang="less"></style>
