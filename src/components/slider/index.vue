@@ -51,8 +51,8 @@ export default {
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    height: 60%;
+    top: -300px;
+    height: 400px;
     width: 100%;
     background: @theme-color;
   }
