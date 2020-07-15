@@ -30,6 +30,10 @@ const routes = [
           import(/* webpackChunkName: "rank" */ "../application/Rank")
       }
     ]
+  },
+  {
+    path: "/test",
+    component: () => import("../application/Test.vue")
   }
 ];
 
