@@ -7,7 +7,7 @@
           {{ listItem.playCount | handlePlayCount }}
         </div>
       </div>
-      <img :src="listItem.picUrl" alt="" />
+      <img v-lazy="listItem.picUrl" alt="" />
     </div>
     <p class="desc">{{ listItem.name }}</p>
     <p />

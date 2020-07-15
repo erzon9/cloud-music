@@ -1,7 +1,10 @@
 <template>
   <div class="swiper">
     <swiper :options="swiperOption">
-      <swiper-slide v-for="(slider, key) in bannerList" :key="key">
+      <swiper-slide
+        v-for="(slider, i) in bannerList"
+        :key="slider.encodeId + i"
+      >
         <div class="slider-nav">
           <img :src="slider.imageUrl" width="100%" height="100%" alt="推荐" />
         </div>
@@ -33,9 +36,11 @@ export default {
           el: ".swiper-pagination"
         },
         loop: true
+        // autoplay: true,
       }
     };
-  }
+  },
+  mounted() {}
 };
 </script>
 
