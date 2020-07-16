@@ -2,10 +2,14 @@ import Vue from "vue";
 import Vuex from "vuex";
 import * as mutationTypes from "./mutationTypes";
 import { getBannerRequest, getRecommendListRequest } from "../api/request";
+import singer from "./module/singer";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    singer
+  },
   state: {
     bannerList: [],
     recommendList: [],
@@ -48,6 +52,5 @@ export default new Vuex.Store({
         // 错误处理
       }
     }
-  },
-  modules: {}
+  }
 });

@@ -1,6 +1,8 @@
 <template>
   <div class="scroll" ref="scroll">
-    <div class="content">
+    <div
+      :class="{ content: true, 'horizental-class': direction === 'horizental' }"
+    >
       <slot></slot>
     </div>
   </div>
@@ -28,15 +30,21 @@ export default {
     },
     onScroll: {
       type: Function,
-      default: null
+      default: () => {
+        return () => {};
+      }
     },
     pullUp: {
       type: Function,
-      default: null
+      default: () => {
+        console.log("pullUp");
+      }
     },
     pullDown: {
       type: Function,
-      default: null
+      default: () => {
+        console.log("pullDown");
+      }
     },
     pullUpLoading: {
       type: Boolean,
@@ -61,7 +69,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this);
     const {
       direction,
       click,
@@ -94,7 +101,7 @@ export default {
         onScroll(scroll);
       });
       this.bScroll.on("scrollEnd", () => {
-        if (bScroll.y <= bScroll.maxSrollY + 100) {
+        if (bScroll.y <= bScroll.maxScrollY + 100) {
           pullUp();
         }
       });
@@ -112,5 +119,12 @@ export default {
 .scroll {
   height: 100%;
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+
+  .horizental-class {
+    display: inline-block;
+    padding: 0 5px;
+  }
 }
 </style>
